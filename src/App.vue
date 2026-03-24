@@ -70,7 +70,7 @@ export default {
 
 
       try {
-        const response = await fetch(' http://localhost:3000/server/project_rainfall_function/datastore', {
+        const response = await fetch('https://project-rainfall-20113304171.development.catalystserverless.eu/server/test2/', {
           method: 'POST',
           body: formData
         })
