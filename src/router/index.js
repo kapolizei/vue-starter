@@ -11,11 +11,7 @@ import Tasks from "@/components/Tasks.vue";
 const routes = [
   {
     path: '/',
-    component: AuthForm,
-    beforeEnter: (to, from, next) => {
-      if (localStorage.getItem('token')) next('/dashboard')
-      else next()
-    },
+    component: Users,
   },
   {
     path: '/projects',
