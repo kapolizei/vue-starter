@@ -1,23 +1,41 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import AuthForm from '../components/AuthForm.vue'
+import Dashboard from '../components/Dashboard.vue'
+import Users from '@/components/Users.vue'
+import Form from '@/components/Form.vue'
+import CandidatesList from '@/components/CandidatesList.vue'
+import Projects from '@/components/Projects.vue'
+import Timelog from '@/components/Timelog.vue'
+import Tasks from "@/components/Tasks.vue";
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
+const routes = [
+  {
+    path: '/',
+    component: AuthForm,
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem('token')) next('/dashboard')
+      else next()
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
-  ]
-})
+  },
+  {
+    path: '/projects',
+    component: Projects,
+  },
+  {
+    path: '/users',
+    component: Users,
+  },
+  {
+    path: '/tasks',
+    component: Tasks,
+  },
+  {
+    path: '/timelog',
+    component: Timelog,
+  },
+]
 
-export default router
+export default createRouter({
+  history: createWebHistory(),
+  routes
+})
