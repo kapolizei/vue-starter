@@ -7,7 +7,7 @@ const error = ref(null)
 
 const projectsList = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/projects', {
+    const res = await fetch('http://localhost:3000/server/project_rainfall_function/api/projects', {
       method: 'GET',
     })
     const data = await res.json()

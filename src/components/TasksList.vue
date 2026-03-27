@@ -13,7 +13,7 @@ const loadTasks = async () => {
   loading.value = true
   error.value = null
   try {
-    const res = await fetch(`http://localhost:3000/api/tasks/${props.projectId}`)
+    const res = await fetch(`http://localhost:3000/server/project_rainfall_function/api/tasks/${props.projectId}`)
     const data = await res.json()
     tasks.value = data.tasks.tasks || []
   } catch {
