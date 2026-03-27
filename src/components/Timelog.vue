@@ -27,7 +27,7 @@ const form = ref({
 
 onMounted(async () => {
   try {
-    const res = await fetch('https://project-rainfall-20113304171.development.catalystserverless.eu/server/project_rainfall_function/api/projects')
+    const res = await fetch('http://localhost:3000/server/project_rainfall_function/api/projects')
     const data = await res.json()
     projects.value = data.projects || []
   } catch {
@@ -40,7 +40,7 @@ watch(selectedProjectId, async (id) => {
   selectedTask.value = null
   loading.value = true
   try {
-    const res = await fetch(`https://project-rainfall-20113304171.development.catalystserverless.eu/server/project_rainfall_function/api/tasks/${id}`)
+    const res = await fetch(`http://localhost:3000/server/project_rainfall_function/api/tasks/${id}`)
     const data = await res.json()
     tasks.value = data.tasks.tasks || []
     console.log(tasks.value)
@@ -65,7 +65,7 @@ const handleSubmit = async () => {
   if (!validate()) return
   try {
     const res = await fetch(
-        `https://project-rainfall-20113304171.development.catalystserverless.eu/server/project_rainfall_function/api/time/${selectedProjectId.value}`,
+        `http://localhost:3000/server/project_rainfall_function/api/time/${selectedProjectId.value}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
