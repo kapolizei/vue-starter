@@ -32,7 +32,7 @@ const validate = () => {
 const handleSubmit = async () => {
   if (!validate()) return
   try {
-    const res = await fetch(`http://localhost:3000/server/project_rainfall_function/api/tasks/${selectedProjectId.value}`, {
+    const res = await fetch(`https://project-rainfall-20113304171.development.catalystserverless.eu/server/project_rainfall_function/api/tasks/${selectedProjectId.value}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: form.value.task_name }),
