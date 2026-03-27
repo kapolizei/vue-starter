@@ -5,14 +5,10 @@ import Dashboard from '@/components/Dashboard.vue'
 const users = ref([])
 const loading = ref(true)
 const error = ref(null)
-const token = localStorage.getItem('token')
 onMounted(async () => {
   try {
-    const res = await fetch('https://project-rainfall-20113304171.development.catalystserverless.eu/server/project_rainfall_function/api/users', {
+    const res = await fetch('http://localhost:3000/server/project_rainfall_function/api/users', {
       method: 'GET',
-      headers: {
-        Authorization: token,
-      },
     })
     const data = await res.json()
     users.value = data.users.users
