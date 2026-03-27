@@ -7,7 +7,7 @@ const loading = ref(true)
 const error = ref(null)
 onMounted(async () => {
   try {
-    const res = await fetch('http://localhost:3000/server/project_rainfall_function/api/users', {
+    const res = await fetch('https://project-rainfall-20113304171.development.catalystserverless.eu/server/project_rainfall_function/api/users', {
       method: 'GET',
     })
     const data = await res.json()
