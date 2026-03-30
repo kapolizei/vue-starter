@@ -20,7 +20,7 @@ const validate = () => {
 const handleSubmit = async () => {
   if (!validate()) return
   try {
-    const res = await fetch('https://project-rainfall-20113304171.development.catalystserverless.eu/server/project_rainfall_function/api/projects', {
+    const res = await fetch('https://project-rainfall-20113304171.development.catalystserverless.eu/api/projects', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

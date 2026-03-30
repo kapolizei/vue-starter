@@ -13,7 +13,7 @@ const loadTasks = async () => {
   loading.value = true
   error.value = null
   try {
-    const res = await fetch(`https://project-rainfall-20113304171.development.catalystserverless.eu/server/project_rainfall_function/api/tasks/${props.projectId}`)
+    const res = await fetch(`https://project-rainfall-20113304171.development.catalystserverless.eu/api/tasks/${props.projectId}`)
     const data = await res.json()
     tasks.value = data.tasks.tasks || []
   } catch {
